@@ -9,7 +9,7 @@ API_KEY = os.environ.get('API_KEY')
 bot = telebot.TeleBot(API_KEY)
 
 
-@bot.message_handler(commands=['getcore'])
+@bot.message_handler(commands=['core'])
 def get_core(message):
     sent_msg = bot.send_message(message.chat.id, 'Please enter your section followed by the day (e.g. CSE-1 MON): ')
     bot.register_next_step_handler(sent_msg, return_core_time_table)
@@ -22,7 +22,7 @@ def return_core_time_table(message):
         res_dict = timetable.get_core_time_table(keyword_list[0], keyword_list[1])
         print(res_dict)
         res = core_dict_to_table(res_dict)
-    except KeyError as ex:
+    except Exception as ex:
         print(ex)
         res = 'This section/command is not valid. Please try again.'
 
@@ -56,7 +56,7 @@ def core_dict_to_table(res_dict):
     return res
 
 
-@bot.message_handler(commands=['getElective'])
+@bot.message_handler(commands=['elective'])
 def get_elective(message):
     sent_msg = bot.send_message(message.chat.id,
                                 'Please enter your elective code, section and day (e.g. ML_CSE-1 MON): ')
@@ -70,7 +70,7 @@ def return_elective_time_table(message):
         res_dict = timetable.get_ele_time_table(keyword_list[0], keyword_list[1])
         print(res_dict)
         res = ele_dict_to_table(res_dict)
-    except KeyError as ex:
+    except Exception as ex:
         print(ex)
         res = 'This section/command is not valid. Please try again.'
 
