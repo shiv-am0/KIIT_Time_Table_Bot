@@ -10,3 +10,11 @@ To install the Telegram bot, follow the steps below:
 3) Create a new bot on Telegram and obtain the API key
 4) Create a '**.env**' file and define your API key as '**API_KEY**'.
 5) Run the bot using the command python main.py
+
+### Usage
+To use the Telegram bot, follow the steps below:
+
+1) Open Telegram and search for the bot using the username.
+2) Send the command '**/start**' to initiate the conversation.
+3) Follow the prompts to enter the required details.
+4) The bot will fetch the timetable and display it in the chat.
